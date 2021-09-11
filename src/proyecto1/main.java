@@ -27,6 +27,7 @@ public class main {
     Date date = calendario.getTime();
 
 
+
     /**Esta es el main que ayuda a que se inicialice todo el proyecto*/
     public static void main(String[] args) {
         main proyecto= new main();
@@ -267,12 +268,12 @@ public void menuGeneral() {
         int valorAPagar;
         Calendar calendario2 = Calendar.getInstance();
         Date date2 = calendario2.getTime();
-        fechaHora= dateFormat.format(date2);
         minutosEntrada=JOptionPane.showInputDialog("Ingrese a la hora que ingreso su vehiculo: ");
         try {
             Date segundoSalida = dateFormat.parse(minutosEntrada);
-            int segundoACobrar= (int) (date2.getTime()-segundoSalida.getTime())/60000;
+            int segundoACobrar= (int) (date2.getTime()-segundoSalida.getTime())/1000;
             valorAPagar=(segundoACobrar/moduloDeTiempo)*10;
+            fechaHora= dateFormat.format(date2);
             Nit=JOptionPane.showInputDialog(null,"Vehiculo Fue retirado \nValor a cancelar: "+valorAPagar+"\nIngrese su nit para facturar: ");
             String dest = "D:\\Sergio\\Universidad\\4 Semestre\\01 Programación II\\Proyectos\\Proyecto1\\Reportes\\FacturaCarro.pdf";
             PdfWriter writer = new PdfWriter(dest);
@@ -304,14 +305,14 @@ public void menuGeneral() {
         int valorAPagar;
         Calendar calendario3 = Calendar.getInstance();
         Date date3 = calendario3.getTime();
-
         minutosEntrada=JOptionPane.showInputDialog("Ingrese a la hora que ingreso su vehiculo: ");
         try {
             Date segundoSalida = dateFormat.parse(minutosEntrada);
-            int segundoACobrar= (int) (date3.getTime()-segundoSalida.getTime())/60000;
+            int segundoACobrar= (int) (date3.getTime()-segundoSalida.getTime())/1000;
             valorAPagar=((segundoACobrar/moduloDeTiempo)*10);
             double Descuento=valorAPagar*0.10;
             double valorAPagarTotal=valorAPagar-Descuento;
+            fechaHora= dateFormat.format(date3);
             Nit=JOptionPane.showInputDialog(null,"Vehiculo Fue retirado \nValor a cancelar: "+valorAPagar+"\nIngrese su nit para facturar: ");
             String dest = "D:\\Sergio\\Universidad\\4 Semestre\\01 Programación II\\Proyectos\\Proyecto1\\Reportes\\FacturaMoto.pdf";
             PdfWriter writer = new PdfWriter(dest);
@@ -320,7 +321,7 @@ public void menuGeneral() {
             pdfDoc.addNewPage();
             Paragraph texto1 = new Paragraph("***Parqueo UMG de Motos***");
             Paragraph texto2 = new Paragraph ("Hora de entrada: "+minutosEntrada);
-            Paragraph texto3= new Paragraph ("Hora de Salida: "+date3.getTime());
+            Paragraph texto3= new Paragraph ("Hora de Salida: "+fechaHora);
             Paragraph texto4= new Paragraph ("Valor de pago parcial: Q"+valorAPagar);
             Paragraph texto5= new Paragraph ("Descuento: Q"+Descuento);
             Paragraph texto6 = new Paragraph ("Total a Cancelar: Q"+valorAPagarTotal);
@@ -347,7 +348,6 @@ public void menuGeneral() {
         int valorAPagar;
         Calendar calendario4 = Calendar.getInstance();
         Date date4 = calendario4.getTime();
-        fechaHora= dateFormat.format(date4);
         minutosEntrada=JOptionPane.showInputDialog("Ingrese a la hora que ingreso su Camiones: ");
         try {
             Date segundoSalida = dateFormat.parse(minutosEntrada);
@@ -355,6 +355,7 @@ public void menuGeneral() {
             valorAPagar=((segundoACobrar/moduloDeTiempo)*10);
             int Cobro =((segundoACobrar/moduloDeTiempo)%20)*5;
             double valorAPagarTotal=valorAPagar+Cobro;
+            fechaHora= dateFormat.format(date4);
             Nit=JOptionPane.showInputDialog(null,"Vehiculo Fue retirado \nValor a cancelar: "+valorAPagar+"\nIngrese su nit para facturar: ");
             String dest = "D:\\Sergio\\Universidad\\4 Semestre\\01 Programación II\\Proyectos\\Proyecto1\\Reportes\\FacturaCamion.pdf";
             PdfWriter writer = new PdfWriter(dest);
