@@ -262,6 +262,7 @@ public void menuGeneral() {
         } while (exit3 != 3);
     }//fin menu de menu de ingreos
 
+    /**Este metodo ayuda a calcular el pago de tarifa del carro*/
     public void salidaCarro(){
 
         String minutosEntrada;
@@ -299,6 +300,7 @@ public void menuGeneral() {
         menuGeneral();
 
     }
+    /**Este metodo ayuda a calcular el pago de tarifa del moto*/
     public void salidaMoto(){
 
         String minutosEntrada;
@@ -342,6 +344,7 @@ public void menuGeneral() {
         menuGeneral();
 
     }
+    /**Este metodo ayuda a calcular el pago de tarifa del camion*/
     public void salidaCamion(){
 
         String minutosEntrada;
